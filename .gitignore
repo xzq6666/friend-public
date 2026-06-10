@@ -1,0 +1,10 @@
+# Maven编译输出
+target/
+
+# 配置文件
+application.yml
+application.properties
+
+# 日志、临时文件
+*.log
+uploads/

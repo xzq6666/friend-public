@@ -1,0 +1,143 @@
+/* ============================================
+   设计系统变量 — 克制、有机、有质感
+   ============================================ */
+:root {
+  /* 主色调 — 低饱和度靛蓝，不张扬 */
+  --primary-50:  #f4f6fb;
+  --primary-100: #e8ecf5;
+  --primary-200: #d1d9eb;
+  --primary-300: #adb9d9;
+  --primary-400: #7a8ec2;
+  --primary-500: #4e6496;
+  --primary-600: #3d5078;
+  --primary-700: #2f3f5f;
+
+  /* 功能色 — 克制 */
+  --success-50:  #f0faf4;
+  --success-100: #d4edda;
+  --success-400: #5cb878;
+  --success-500: #3ea15d;
+  --success-600: #2d7d45;
+  --success-700: #1e5a32;
+
+  --warning-50:  #fdf8f0;
+  --warning-100: #fce8cc;
+  --warning-400: #d4a04a;
+  --warning-500: #c08a2e;
+  --warning-600: #9a6e20;
+  --warning-700: #755218;
+
+  --danger-50:   #fdf2f2;
+  --danger-100:  #f8d7da;
+  --danger-400:  #d95d5d;
+  --danger-500:  #c03939;
+  --danger-600:  #9e2b2b;
+  --danger-700:  #7a1f1f;
+
+  /* 中性色 — 带一点暖调的灰 */
+  --gray-50:  #faf9f7;
+  --gray-100: #f3f1ed;
+  --gray-200: #e8e5df;
+  --gray-300: #d1ccc4;
+  --gray-400: #9e9890;
+  --gray-500: #78726a;
+  --gray-600: #5c564e;
+  --gray-700: #3d3832;
+  --gray-800: #2a2620;
+  --gray-900: #1a1814;
+
+  /* 语义色 */
+  --color-primary:       var(--primary-500);
+  --color-primary-hover: var(--primary-600);
+  --color-success:       var(--success-500);
+  --color-warning:       var(--warning-500);
+  --color-danger:        var(--danger-500);
+  --color-text:          var(--gray-800);
+  --color-text-sub:      var(--gray-500);
+  --color-text-muted:    var(--gray-400);
+  --color-border:        var(--gray-200);
+  --color-bg:            #fbfaf8;
+  --color-surface:       #ffffff;
+
+  /* 间距系统 */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  32px;
+  --space-8:  40px;
+  --space-9:  48px;
+  --space-10: 56px;
+  --space-11: 64px;
+  --space-12: 80px;
+
+  /* 圆角 — 更克制，区分层级 */
+  --radius-xs:   3px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  20px;
+  --radius-full: 9999px;
+
+  /* 阴影 — 极轻，只在必要时 */
+  --shadow-xs:  0 1px 1px  rgba(0, 0, 0, 0.03);
+  --shadow-sm:  0 1px 2px  rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 2px 8px  rgba(0, 0, 0, 0.06);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.12);
+
+  /* 字体 */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+
+  /* 字号 — 更有层次 */
+  --text-xs:   11px;
+  --text-sm:   12px;
+  --text-base: 14px;
+  --text-md:   15px;
+  --text-lg:   16px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+  --text-4xl:  36px;
+
+  /* 行高 */
+  --leading-tight:   1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+
+  /* 字重 */
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* 过渡 — 快速、自然 */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast:   120ms;
+  --duration-normal: 200ms;
+  --duration-slow:   300ms;
+
+  /* 布局 */
+  --sidebar-width: 220px;
+  --sidebar-collapsed-width: 64px;
+  --header-height: 56px;
+
+  /* 容器宽度 */
+  --container-sm: 420px;
+  --container-md: 768px;
+  --container-lg: 920px;
+  --container-xl: 1200px;
+
+  /* 品牌色渐变 */
+  --gradient-brand: linear-gradient(160deg, var(--gray-900) 0%, var(--gray-800) 60%, #1e2a3a 100%);
+
+  /* 背景色 */
+  --bg-warm: #fbfaf8;
+}

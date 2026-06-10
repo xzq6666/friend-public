@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartrecruitment.mapper.MatchRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.smartrecruitment.entity.MatchRecord">
+        <id column="id" property="id" />
+        <result column="resume_id" property="resumeId" />
+        <result column="job_id" property="jobId" />
+        <result column="match_score" property="matchScore" />
+        <result column="ai_suggestion" property="aiSuggestion" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, resume_id, job_id, match_score, ai_suggestion, status, create_time
+    </sql>
+
+    <select id="countByCreateTime" resultType="long" parameterType="java.time.LocalDateTime">
+        SELECT COUNT(*)
+        FROM match_record
+        WHERE DATE(create_time) = DATE(#{createTime})
+        AND match_score >= 40
+    </select>
+
+    <select id="countByDateRange" resultType="long">
+        SELECT COUNT(*)
+        FROM match_record
+        WHERE create_time >= #{start}
+        AND create_time &lt; #{end}
+        AND match_score >= 40
+    </select>
+
+    <resultMap id="MatchWithJobResultMap" type="java.util.HashMap">
+        <id column="id" property="id" />
+        <result column="resume_id" property="resumeId" />
+        <result column="job_id" property="jobId" />
+        <result column="match_score" property="matchScore" />
+        <result column="ai_suggestion" property="aiSuggestion" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="job_title" property="jobTitle" />
+        <result column="job_location" property="jobLocation" />
+        <result column="salary_min" property="salaryMin" />
+        <result column="salary_max" property="salaryMax" />
+        <result column="experience_required" property="experienceRequired" />
+        <result column="education_required" property="educationRequired" />
+    </resultMap>
+
+    <select id="getMatchRecordsWithJob" resultMap="MatchWithJobResultMap">
+        SELECT mr.*, j.title as job_title, j.location as job_location,
+               j.salary_min, j.salary_max, j.experience_required, j.education_required
+        FROM match_record mr
+        LEFT JOIN job j ON mr.job_id = j.id
+        WHERE mr.resume_id = #{resumeId}
+        ORDER BY mr.match_score DESC
+    </select>
+
+    <resultMap id="MatchWithResumeResultMap" type="java.util.HashMap">
+        <id column="id" property="id" />
+        <result column="resume_id" property="resumeId" />
+        <result column="job_id" property="jobId" />
+        <result column="match_score" property="matchScore" />
+        <result column="ai_suggestion" property="aiSuggestion" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="resume_name" property="resumeName" />
+        <result column="resume_skills" property="resumeSkills" />
+        <result column="resume_experience" property="resumeExperience" />
+        <result column="resume_education" property="resumeEducation" />
+    </resultMap>
+
+    <select id="getMatchRecordsWithResume" resultMap="MatchWithResumeResultMap">
+        SELECT mr.*, r.name as resume_name, r.skills as resume_skills,
+               r.experience as resume_experience, r.education as resume_education
+        FROM match_record mr
+        LEFT JOIN resume r ON mr.resume_id = r.id
+        WHERE mr.job_id = #{jobId}
+        ORDER BY mr.match_score DESC
+    </select>
+
+</mapper>

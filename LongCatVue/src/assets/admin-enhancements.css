@@ -1,0 +1,443 @@
+/* ============================================
+   管理后台样式增强补丁
+   为管理后台页面提供统一的视觉增强
+   ============================================ */
+
+/* ── 页面容器 ─────────────────────────────── */
+.manage-jobs-page,
+.manage-resumes,
+.manage-candidates,
+.manage-interviews,
+.users-page,
+.manage-keywords,
+.data-analysis-page,
+.data-export-page,
+.operation-logs-page,
+.skill-graph-page {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+/* ── 页面头部增强（补充 layout-utilities.css） ── */
+.header-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* ── 搜索栏增强（补充 layout-utilities.css） ── */
+.search-bar .el-input {
+  flex: 1;
+  max-width: 320px;
+}
+
+/* ── 表格卡片增强 ─────────────────────────── */
+.table-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table-card .el-table {
+  --el-table-border-color: var(--gray-100);
+}
+
+.table-card .el-table th.el-table__cell {
+  background: var(--gray-50) !important;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-600);
+}
+
+.table-card .el-table td.el-table__cell {
+  padding: var(--space-3) 0;
+}
+
+/* ── 操作按钮组增强 ───────────────────────── */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.action-buttons .el-divider--vertical {
+  height: 16px;
+  margin: 0 2px;
+}
+
+/* ── 候选人信息卡片 ───────────────────────── */
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.candidate-info strong {
+  color: var(--gray-900);
+  font-size: var(--text-sm);
+}
+
+.candidate-info .age {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── 详情对话框增强 ───────────────────────── */
+.resume-detail,
+.candidate-detail {
+  padding: var(--space-2) 0;
+}
+
+.detail-section {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--gray-100);
+}
+
+.detail-section h4 {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  font-weight: var(--weight-semibold);
+}
+
+.detail-section p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+.detail-section.reject p {
+  color: var(--danger-600);
+}
+
+/* ── AI 分析区域增强 ─────────────────────── */
+.ai-section {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+}
+
+.ai-section h4 {
+  margin: 0 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ai-section h4::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--gray-900);
+  border-radius: var(--radius-xs);
+}
+
+.analysis-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.score-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.score-num {
+  font-size: 28px;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+
+.score-unit {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.score-info {
+  flex: 1;
+}
+
+.score-desc {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.radar-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.radar-chart {
+  width: 100%;
+  height: 280px;
+}
+
+.analysis-block {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.analysis-block h5 {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--gray-800);
+  font-weight: var(--weight-semibold);
+}
+
+.dim-card {
+  margin-bottom: var(--space-3);
+}
+
+.dim-card:last-child {
+  margin-bottom: 0;
+}
+
+.dim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+.dim-name {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+}
+
+.dim-score {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+}
+
+.strength-list,
+.weakness-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.strength-list li,
+.weakness-list li {
+  position: relative;
+  padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-50);
+}
+
+.strength-list li:last-child,
+.weakness-list li:last-child {
+  border-bottom: none;
+}
+
+.strength-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success-500);
+  font-weight: var(--weight-bold);
+}
+
+.weakness-list li::before {
+  content: '!';
+  position: absolute;
+  left: 0;
+  color: var(--warning-500);
+  font-weight: var(--weight-bold);
+}
+
+.comment {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.raw-json {
+  background: var(--gray-900);
+  color: var(--gray-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ── 工作经历区域 ─────────────────────────── */
+.work-exp-section {
+  margin-top: var(--space-4);
+}
+
+.work-exp-section h4 {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+}
+
+.work-exp-detail {
+  padding: var(--space-3) 0;
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.exp-header strong {
+  color: var(--gray-900);
+}
+
+.exp-position {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.exp-date {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.exp-desc {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── 信息网格 ─────────────────────────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.info-item .label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.skill-tag {
+  margin: 0;
+}
+
+.dev-path {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+/* ── 图表容器 ─────────────────────────────── */
+.graph-chart-container {
+  width: 100%;
+  height: 500px;
+}
+
+/* ── 按钮主样式 ───────────────────────────── */
+.btn-primary {
+  background: var(--gray-900) !important;
+  border-color: var(--gray-900) !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background: var(--gray-800) !important;
+  border-color: var(--gray-800) !important;
+}
+
+/* ── 响应式优化 ───────────────────────────── */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-actions .el-input,
+  .header-actions .el-select {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar .el-input {
+    max-width: none;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons .el-divider--vertical {
+    display: none;
+  }
+
+  .score-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── 动画（使用 page-enhancements.css 中的 fadeIn） ── */

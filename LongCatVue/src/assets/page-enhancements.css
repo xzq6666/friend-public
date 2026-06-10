@@ -1,0 +1,399 @@
+/* ============================================
+   页面样式增强补丁
+   为所有业务页面提供统一的视觉增强
+   ============================================ */
+
+/* ── 页面容器 ─────────────────────────────── */
+/* 移除自动动画，避免页面切换时闪烁 */
+.jobs-page,
+.my-applications-page,
+.my-interviews-page,
+.favorites-page,
+.profile-page,
+.match-page,
+.my-resume-page,
+.skill-graph-page,
+.data-analysis-page,
+.data-export-page {
+  /* animation: fadeIn var(--duration-normal) var(--ease-out); */
+}
+
+/* ── 卡片增强 ─────────────────────────────── */
+.job-card,
+.application-card,
+.interview-card,
+.fav-card,
+.match-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card::before,
+.application-card::before,
+.interview-card::before,
+.fav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gray-200) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.job-card:hover::before,
+.application-card:hover::before,
+.interview-card:hover::before,
+.fav-card:hover::before {
+  opacity: 1;
+}
+
+/* ── 状态标签增强 ─────────────────────────── */
+.status-pill {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% { left: 100%; }
+}
+
+/* ── 对话框增强 ─────────────────────────────── */
+.el-dialog {
+  border-radius: var(--radius-xl) !important;
+}
+
+.el-dialog__header {
+  padding: var(--space-5) var(--space-6) !important;
+  border-bottom: 1px solid var(--gray-100);
+  margin-right: 0 !important;
+}
+
+.el-dialog__body {
+  padding: var(--space-5) var(--space-6) !important;
+}
+
+.el-dialog__footer {
+  padding: var(--space-4) var(--space-6) !important;
+  border-top: 1px solid var(--gray-100);
+}
+
+/* ── 表单增强 ─────────────────────────────── */
+.el-form-item__label {
+  font-weight: var(--weight-medium) !important;
+  color: var(--gray-700) !important;
+}
+
+/* ── 表格增强 ─────────────────────────────── */
+.el-table {
+  --el-table-border-color: var(--gray-100) !important;
+}
+
+.el-table th.el-table__cell {
+  background: var(--gray-50) !important;
+  font-size: var(--text-sm) !important;
+}
+
+/* ── 按钮增强 ─────────────────────────────── */
+.el-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.el-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.el-button:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* ── 标签增强 ─────────────────────────────── */
+.el-tag {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.el-tag:hover {
+  transform: scale(1.05);
+}
+
+/* ── 输入框增强 ─────────────────────────────── */
+.el-input__wrapper,
+.el-textarea__inner {
+  transition: all var(--duration-fast) var(--ease-out) !important;
+}
+
+/* ── 选择器增强 ─────────────────────────────── */
+.el-select-dropdown__item {
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+/* ── 分页增强 ─────────────────────────────── */
+.el-pagination {
+  gap: var(--space-1);
+}
+
+.el-pagination .el-pager li {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+/* ── 加载动画增强 ─────────────────────────── */
+.el-loading-spinner .circular {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+/* ── 空状态增强 ─────────────────────────────── */
+.el-empty {
+  padding: var(--space-8) 0;
+}
+
+.el-empty__image {
+  width: 120px !important;
+  height: 120px !important;
+  opacity: 0.6;
+}
+
+/* ── 统计卡片悬停效果 ─────────────────────── */
+.stat-cell {
+  position: relative;
+}
+
+.stat-cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gray-50) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  border-radius: inherit;
+}
+
+.stat-cell:hover::before {
+  opacity: 1;
+}
+
+.stat-cell > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 时间线增强 ─────────────────────────────── */
+.timeline-item {
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gray-200);
+}
+
+.timeline-item:first-child::before {
+  top: 50%;
+}
+
+.timeline-item:last-child::before {
+  bottom: 50%;
+}
+
+/* ── 快捷操作增强 ─────────────────────────── */
+.shortcut-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.shortcut-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-50) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.shortcut-item:hover::before {
+  opacity: 1;
+}
+
+.shortcut-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 图表容器增强 ─────────────────────────── */
+.chart-box {
+  position: relative;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.chart-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.5) 100%);
+  pointer-events: none;
+}
+
+/* ── 滚动条美化（全局） ──────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--radius-full);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* ── 响应式优化 ───────────────────────────── */
+@media (max-width: 768px) {
+  .el-dialog {
+    width: 90% !important;
+    margin: 5vh auto !important;
+  }
+
+  .el-dialog__header,
+  .el-dialog__body,
+  .el-dialog__footer {
+    padding: var(--space-4) !important;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-row {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    padding-bottom: var(--space-2);
+  }
+
+  .stat-tab {
+    flex-shrink: 0;
+  }
+}
+
+/* ── 动画关键帧 ───────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── 工具动画类 ───────────────────────────── */
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+.animate-slide-left {
+  animation: slideInLeft var(--duration-normal) var(--ease-out);
+}
+
+.animate-slide-right {
+  animation: slideInRight var(--duration-normal) var(--ease-out);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+}
+
+/* ── 打印样式 ─────────────────────────────── */
+@media print {
+  .topnav,
+  .sidebar,
+  .greeting-actions,
+  .footer-actions,
+  .card-actions {
+    display: none !important;
+  }
+
+  .job-card,
+  .application-card,
+  .interview-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid var(--gray-300) !important;
+  }
+}
